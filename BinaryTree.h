@@ -49,26 +49,26 @@ int BinaryTreeEmpty(BinaryTree t)
 /*
  *	构造二叉树节点
  */
-void createBinaryNode(BiTree n,BiTree parent)
+void createBinaryNode(BiTree *n,BiTree parent)
 {
 	ElemType e;
 	scanf("%s",&e);
 	if(e == END)
 	{
-		n = NULL;
+		*n = NULL;
 		return;
 	}
 	else
 	{
-		n = (BiTree)malloc(sizeof(BiTree));
-		n->data = e;
-		n->parent = parent;
+		*n = (BiTree)malloc(sizeof(BiTree));
+		(*n)->data = e;
+		(*n)->parent = parent;
 	}
-	printf("%c的左孩子节点：",n->data);
-	createBinaryNode(n->lchild,n);
+	printf("%c的左孩子节点：",(*n)->data);
+	createBinaryNode(&((*n)->lchild),*n);
 
-	printf("%c的右孩子节点：",n->data);
-	createBinaryNode(n->rchild,n);
+	printf("%c的右孩子节点：",(*n)->data);
+	createBinaryNode(&((*n)->rchild),*n);
 }
 
 void createBinaryTree(BinaryTree *t)
@@ -88,10 +88,10 @@ void createBinaryTree(BinaryTree *t)
 		t->root->data = e;
 		
 		printf("根节点的左孩子节点：");
-		createBinaryNode(t->root->lchild,t->root);
+		createBinaryNode(&(t->root->lchild),t->root);
 
 		printf("根节点的右孩子节点：");
-		createBinaryNode(t->root->rchild,t->root);
+		createBinaryNode(&(t->root->rchild),t->root);
 
 	}
 }
