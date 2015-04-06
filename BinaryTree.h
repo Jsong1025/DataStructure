@@ -71,6 +71,9 @@ void createBinaryNode(BiTree *n,BiTree parent)
 	createBinaryNode(&((*n)->rchild),*n);
 }
 
+/*
+ *	构造二叉树
+ */
 void createBinaryTree(BinaryTree *t)
 {
 	ElemType e;
@@ -95,3 +98,32 @@ void createBinaryTree(BinaryTree *t)
 
 	}
 }
+
+/*
+ *	前序遍历二叉树节点（递归方法）
+ */
+void preOrederTraverseNode(BiTree n)
+{
+	if(n->lchild != NULL)
+	{
+		preOrederTraverseNode(n->lchild);
+	}
+
+	printf("%c\t",n->data);
+	
+	if(n->rchild != NULL)
+	{
+		preOrederTraverseNode(n->rchild);
+	}
+}
+
+/*
+ *	前序遍历二叉树
+ */
+void preOrederTraverse(BinaryTree t)
+{
+	printf("这棵二叉树的前序遍历为：\n");
+	preOrederTraverseNode(t.root);
+	printf("\n");
+}
+
