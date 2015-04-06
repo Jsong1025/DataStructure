@@ -104,12 +104,12 @@ void createBinaryTree(BinaryTree *t)
  */
 void preOrederTraverseNode(BiTree n)
 {
+	printf("%c\t",n->data);
+
 	if(n->lchild != NULL)
 	{
 		preOrederTraverseNode(n->lchild);
 	}
-
-	printf("%c\t",n->data);
 	
 	if(n->rchild != NULL)
 	{
@@ -127,3 +127,58 @@ void preOrederTraverse(BinaryTree t)
 	printf("\n");
 }
 
+/*
+ *	中序遍历二叉树节点（递归方法）
+ */
+void inOrederTraverseNode(BiTree n)
+{
+	if(n->lchild != NULL)
+	{
+		inOrederTraverseNode(n->lchild);
+	}
+
+	printf("%c\t",n->data);
+	
+	if(n->rchild != NULL)
+	{
+		inOrederTraverseNode(n->rchild);
+	}
+}
+
+/*
+ *	中序遍历二叉树
+ */
+void inOrederTraverse(BinaryTree t)
+{
+	printf("这棵二叉树的中序遍历为：\n");
+	inOrederTraverseNode(t.root);
+	printf("\n");
+}
+
+/*
+ *	后序遍历二叉树节点（递归方法）
+ */
+void postOrederTraverseNode(BiTree n)
+{
+	if(n->lchild != NULL)
+	{
+		postOrederTraverseNode(n->lchild);
+	}
+	
+	if(n->rchild != NULL)
+	{
+		postOrederTraverseNode(n->rchild);
+	}
+
+	printf("%c\t",n->data);
+}
+
+/*
+ *	后序遍历二叉树
+ */
+void postOrederTraverse(BinaryTree t)
+{
+	printf("这棵二叉树的后序遍历为：\n");
+	postOrederTraverseNode(t.root);
+	printf("\n");
+}
