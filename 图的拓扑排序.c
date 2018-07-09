@@ -79,20 +79,20 @@ void InitGraph ()
 {
 	int i;
 	ArcNode *Arc1,*Arc2;
-	printf("��������Ҫ����ͼ�Ľڵ�����");
+	printf("请输入所要构建图的节点数：");
 	scanf("%d",&MainGraph.VexNum);
-	printf("�����������нڵ��й�ϵ�Ľڵ�ţ�");
+	printf("请输入与下列节点有关系的节点号：");
 	for (i=1;i<=MainGraph.VexNum;i++)
 	{
 		Arc1=(ArcNode*)malloc(sizeof(ArcNode));
 		MainGraph.GraphNode[i].FristArc=Arc1;
-		printf("��%d���ڵ㣺",i);
+		printf("第%d个节点：",i);
 		while(1)
 		{
 			scanf("%d",&Arc1->adjvex);
 			if(Arc1->adjvex>MainGraph.VexNum)
 			{
-				printf("������Ľڵ㳬��Ԥ����Χ�����������룺");
+				printf("您输入的节点超出预定范围，请重新输入：");
 				scanf("%d",&Arc1->adjvex);
 			}
 			if(Arc1->adjvex==-1)

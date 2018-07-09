@@ -2,31 +2,31 @@
 #include <malloc.h>
 #include <string.h>
 
-//¶¨ÒåÁ´±í½Úµã
+//å®šä¹‰é“¾è¡¨èŠ‚ç‚¹
 typedef struct LongNum
 {
 	int Data;
 	struct LongNum *Next;
 } LongNum; 
 
-//³õÊ¼»¯³¤ÕûĞÎÊı
-//ÕıĞò½¨Á¢
+//åˆå§‹åŒ–é•¿æ•´å½¢æ•°
+//æ­£åºå»ºç«‹
 LongNum *InitLongNum()
 {
 	char Elem;
 
-	//Í·Ö¸ÕëHead ,ÁÙÊ±½Úµã±äÁ¿TempNode
+	//å¤´æŒ‡é’ˆHead ,ä¸´æ—¶èŠ‚ç‚¹å˜é‡TempNode
 	LongNum *TempNode=NULL;
 	LongNum *Head=TempNode;
 
 	if((Elem=getchar())!='\n')
 	{
-		//´¦ÀíµÚÒ»¸ö½Úµã
+		//å¤„ç†ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
 		TempNode=(LongNum*)malloc(sizeof(LongNum));
 		TempNode->Data=Elem-48;
 		Head=TempNode;
 
-		//Ñ­»·¿ª±Ù½Úµã
+		//å¾ªç¯å¼€è¾ŸèŠ‚ç‚¹
 		while((Elem=getchar())!='\n')
 		{
 			TempNode->Next=(LongNum*)malloc(sizeof(LongNum));
@@ -35,21 +35,21 @@ LongNum *InitLongNum()
 		}
 	}
 
-	//´¦Àí×îºóÒ»¸ö½ÚµãÊÇÖ¸Õë
+	//å¤„ç†æœ€åä¸€ä¸ªèŠ‚ç‚¹æ˜¯æŒ‡é’ˆ
 	TempNode->Next=NULL;
 
 	return Head;
 } //InitLongNum
 
-//·­×ªÁ´±í
+//ç¿»è½¬é“¾è¡¨
 LongNum *RoundLongNum(LongNum *RoundLN)
 {
-	//Í·½áµãHead,ÁÙÊ±½ÚµãTemp
+	//å¤´ç»“ç‚¹Head,ä¸´æ—¶èŠ‚ç‚¹Temp
 	LongNum *Head=NULL;
 	LongNum *Temp=RoundLN;
 	LongNum *RoundNode;
 
-	//ÅĞ¶ÏÊÇ·ñÎª¿Õ
+	//åˆ¤æ–­æ˜¯å¦ä¸ºç©º
 	if (Temp==NULL)
 		return NULL;
 
@@ -58,7 +58,7 @@ LongNum *RoundLongNum(LongNum *RoundLN)
 		RoundNode=(LongNum*)malloc(sizeof(LongNum));
 		RoundNode->Data=Temp->Data;
 
-		//RoundNodeµÄnextÖ¸ÕëÖ¸ÏòÍ·Ö¸Õë£¬Í·Ö¸ÕëÇ°ÒÆ
+		//RoundNodeçš„nextæŒ‡é’ˆæŒ‡å‘å¤´æŒ‡é’ˆï¼Œå¤´æŒ‡é’ˆå‰ç§»
 		RoundNode->Next=Head;
 		Head=RoundNode;
 		
@@ -68,14 +68,14 @@ LongNum *RoundLongNum(LongNum *RoundLN)
 	return Head;
 }  //RoundLongNum
 
-//¼ÆËãº¯Êı
-//·Ö±ğ´«ÈëÁ½¸öÁ´±íµÄ½ÚµãCountNode1ºÍCountNode2£¬ÒÔ¼°½øÎ»ÖµCountGoin
-//×¢£ºCountNode1ºÍCountNode2ÎªÖ¸ÏòÖ¸ÕëµÄÖ¸ÕëÀàĞÍ
+//è®¡ç®—å‡½æ•°
+//åˆ†åˆ«ä¼ å…¥ä¸¤ä¸ªé“¾è¡¨çš„èŠ‚ç‚¹CountNode1å’ŒCountNode2ï¼Œä»¥åŠè¿›ä½å€¼CountGoin
+//æ³¨ï¼šCountNode1å’ŒCountNode2ä¸ºæŒ‡å‘æŒ‡é’ˆçš„æŒ‡é’ˆç±»å‹
 int Count ( LongNum **CountNode1 , LongNum **CountNode2, int *CountGoin)
 {
 	int CountNum;
 
-	//Èç¹ûCountNode1Îª¿Õ
+	//å¦‚æœCountNode1ä¸ºç©º
 	if((*CountNode1)==NULL)
 	{
 		//
@@ -84,7 +84,7 @@ int Count ( LongNum **CountNode1 , LongNum **CountNode2, int *CountGoin)
 		(*CountNode2)=(*CountNode2)->Next;
 	}
 
-	//Èç¹ûCountNode2Îª¿Õ
+	//å¦‚æœCountNode2ä¸ºç©º
 	else if((*CountNode2)==NULL)
 	{
 		CountNum=((*CountNode1)->Data+(*CountGoin))%10;
@@ -94,7 +94,7 @@ int Count ( LongNum **CountNode1 , LongNum **CountNode2, int *CountGoin)
 
 	else
 	{
-		//¼ÆËã×ÜºÍCountSum£¬ÒÔ¼°½øÎ»·ûµÄÖµ
+		//è®¡ç®—æ€»å’ŒCountSumï¼Œä»¥åŠè¿›ä½ç¬¦çš„å€¼
 		CountNum=((*CountNode1)->Data+(*CountNode2)->Data+(*CountGoin))%10;
 		*CountGoin=((*CountNode1)->Data+(*CountNode2)->Data+(*CountGoin))/10;
 		
@@ -104,31 +104,31 @@ int Count ( LongNum **CountNode1 , LongNum **CountNode2, int *CountGoin)
 	return CountNum;
 }  //Count
 
-//³¤ÕûÊıµÄÏà¼Ó
+//é•¿æ•´æ•°çš„ç›¸åŠ 
 LongNum *LongNumAdd(LongNum *AddLN1,LongNum *AddLN2)
 {
-	//½øÎ»¹Ø¼üÓò
+	//è¿›ä½å…³é”®åŸŸ
 	int Goin=0;
 
-	//³¤ÕûÊıÖ®ºÍLongNumSumºÍÁ½¸öÁÙÊ±½ÚµãTempLN1£¬TempLN2
+	//é•¿æ•´æ•°ä¹‹å’ŒLongNumSumå’Œä¸¤ä¸ªä¸´æ—¶èŠ‚ç‚¹TempLN1ï¼ŒTempLN2
 	LongNum *LongNumSum;
 	LongNum *TempLN1,*TempLN2;
 	
-	//·Ö±ğÖ¸ÏòLN1£¬LN2 ·­×ªÁ´±íµÄ½ÚµãTempNode1ºÍTempNode2
+	//åˆ†åˆ«æŒ‡å‘LN1ï¼ŒLN2 ç¿»è½¬é“¾è¡¨çš„èŠ‚ç‚¹TempNode1å’ŒTempNode2
 	LongNum *TempNode1=RoundLongNum(AddLN1);
 	LongNum *TempNode2=RoundLongNum(AddLN2);
 	
-	//ÎªTempLN1¿ª±ÙÄÚ´æ£¬²¢¸øDataÓò¸³³õÖµ0
+	//ä¸ºTempLN1å¼€è¾Ÿå†…å­˜ï¼Œå¹¶ç»™DataåŸŸèµ‹åˆå€¼0
 	TempLN2=TempLN1=(LongNum*)malloc(sizeof(LongNum));
 	TempLN1->Data=0;
 	TempLN2->Next=NULL;
 	
-	//Í·Ö¸ÕëLongNumSumÖ¸ÏòTempLN1
+	//å¤´æŒ‡é’ˆLongNumSumæŒ‡å‘TempLN1
 	LongNumSum=TempLN1;
 	if(TempNode1==NULL && TempNode2==NULL)
 		return NULL;
 
-	//·ñÔò£¬ÎªTempLN2¼ÆËã¸³Öµ£¬²¢¼ÆËãÏÂÒ»¸ö½Úµã
+	//å¦åˆ™ï¼Œä¸ºTempLN2è®¡ç®—èµ‹å€¼ï¼Œå¹¶è®¡ç®—ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
 	TempLN2->Data=Count(&TempNode1,&TempNode2,&Goin);
 	TempLN2=(LongNum*)malloc(sizeof(LongNum));
 	TempLN2->Data=0;
@@ -136,13 +136,13 @@ LongNum *LongNumAdd(LongNum *AddLN1,LongNum *AddLN2)
 
 	while(1)
 	{
-		//µ±Á½¸ö³¤ÕûĞÎÊı¾ù±éÀúÍê±Ïºó
-		//¼´TempNode1ºÍTempNode2Í¬Ê±Îª¿Õ
+		//å½“ä¸¤ä¸ªé•¿æ•´å½¢æ•°å‡éå†å®Œæ¯•å
+		//å³TempNode1å’ŒTempNode2åŒæ—¶ä¸ºç©º
 		if(TempNode1==NULL && TempNode2==NULL)
 		{
 			if(Goin!=0)
 			{
-				//Èç¹ûÁ½¸öÁ´±í±éÀú½áÊø£¬µ«½øÎ»·ûÈÔÈ»´æÔÚÖµ
+				//å¦‚æœä¸¤ä¸ªé“¾è¡¨éå†ç»“æŸï¼Œä½†è¿›ä½ç¬¦ä»ç„¶å­˜åœ¨å€¼
 				TempLN2->Data=Goin;
 				TempLN1->Next=TempLN2;
 				TempLN1=TempLN2;
@@ -150,10 +150,10 @@ LongNum *LongNumAdd(LongNum *AddLN1,LongNum *AddLN2)
 			break;
 		}
 
-		//Èç¹û½øÎ»ÓòÎª0£¬¼´ÆÕÍ¨¼ÆËã
+		//å¦‚æœè¿›ä½åŸŸä¸º0ï¼Œå³æ™®é€šè®¡ç®—
 		TempLN2->Data=Count(&TempNode1,&TempNode2,&Goin);
 
-		//¼ÌĞø¿ª±Ù½Úµã
+		//ç»§ç»­å¼€è¾ŸèŠ‚ç‚¹
 		TempLN1->Next=TempLN2;
 		TempLN1=TempLN2;
 
@@ -162,18 +162,18 @@ LongNum *LongNumAdd(LongNum *AddLN1,LongNum *AddLN2)
 		TempLN2->Data=0;
 	}
 	
-	//·­×ªSumÁ´±í£¬Êä³ö
+	//ç¿»è½¬Sumé“¾è¡¨ï¼Œè¾“å‡º
 	LongNumSum=RoundLongNum(LongNumSum);
 	return LongNumSum;
 }  //LongNumAdd
 
-//Êä³öÁ´±í
+//è¾“å‡ºé“¾è¡¨
 void PrintLongNum (LongNum *LNPrint)
 {
-	//¶¨ÒåÁÙÊ±½ÚµãTemp£¬²¢ÁîÆäÖ¸ÏòLNPrint
+	//å®šä¹‰ä¸´æ—¶èŠ‚ç‚¹Tempï¼Œå¹¶ä»¤å…¶æŒ‡å‘LNPrint
 	LongNum *Temp=LNPrint;
 	
-	//µ±Ö¸ÏòÁ´±íµÄ²»Îª¿ÕÊ±£¬Êä³öÁ´±í
+	//å½“æŒ‡å‘é“¾è¡¨çš„ä¸ä¸ºç©ºæ—¶ï¼Œè¾“å‡ºé“¾è¡¨
 	while(Temp!=NULL)
 	{
 		printf("%d",Temp->Data);
@@ -183,13 +183,13 @@ void PrintLongNum (LongNum *LNPrint)
 
 void main ()
 {
-	//·Ö±ğ¶¨Òå³¤ÕûĞÎLongNum1£¬LongNum2ºÍ×ÜºÍLNSum
+	//åˆ†åˆ«å®šä¹‰é•¿æ•´å½¢LongNum1ï¼ŒLongNum2å’Œæ€»å’ŒLNSum
 	LongNum *LongNum1;
 	LongNum *LongNum2;
 	LongNum *LNSum;
 
-	//³õÊ¼»¯Á½¸ö¸öÁ´±í
-	printf("³õÊ¼»¯³¤ÕûĞÍÊı£º£¨ÒÔ-1½áÊø£©\n");
+	//åˆå§‹åŒ–ä¸¤ä¸ªä¸ªé“¾è¡¨
+	printf("åˆå§‹åŒ–é•¿æ•´å‹æ•°ï¼šï¼ˆä»¥-1ç»“æŸï¼‰\n");
 
 	printf("L1=");
 	LongNum1=InitLongNum();
@@ -197,11 +197,11 @@ void main ()
 	LongNum2=InitLongNum();
 	printf("\n");
 	
-	//¼ÆËã×ÜºÍ
+	//è®¡ç®—æ€»å’Œ
 	LNSum=LongNumAdd(LongNum1,LongNum2);
 
-	//Êä³ö½á¹û
-	printf("¼ÆËã½á¹û£º\n");
+	//è¾“å‡ºç»“æœ
+	printf("è®¡ç®—ç»“æœï¼š\n");
 	PrintLongNum(LongNum1);
 	printf(" + "); 
 	PrintLongNum(LongNum2);

@@ -3,27 +3,27 @@
 
 #define TRUE 1
 #define FALSE 0
-#define END '#'		//½áÊø±êÖ¾
+#define END '#'		//ç»“æŸæ ‡å¿—
 
-typedef  char ElemType;		//½ÚµãÊý¾ÝÀàÐÍ
+typedef  char ElemType;		//èŠ‚ç‚¹æ•°æ®ç±»åž‹
 
 typedef enum PointerTag
 {
-	Link,Thread				//Link==0:Ö¸Õë  Thread==1:ÏßË÷
+	Link,Thread				//Link==0:æŒ‡é’ˆ  Thread==1:çº¿ç´¢
 };
 
-typedef struct ThreadBiNode			//ÏßË÷¶þ²æÊ÷½Úµã
+typedef struct ThreadBiNode			//çº¿ç´¢äºŒå‰æ ‘èŠ‚ç‚¹
 {
 	ElemType data;
-	struct ThreadBiNode *lchild;	//×óº¢×Ó
-	struct ThreadBiNode *rchild;	//ÓÒº¢×Ó
-	enum PointerTag LTag;		//×ó±êÖ¾Î»
-	enum PointerTag RTag;		//ÓÒ±êÖ¾Î»
+	struct ThreadBiNode *lchild;	//å·¦å­©å­
+	struct ThreadBiNode *rchild;	//å³å­©å­
+	enum PointerTag LTag;		//å·¦æ ‡å¿—ä½
+	enum PointerTag RTag;		//å³æ ‡å¿—ä½
 }ThreadBiNode, *ThreadBinaryTree;
 
 /*
- *	ÏßË÷¶þ²æÊ÷³õÊ¼»¯
- *		¹¹ÔìÒ»¿Ã¿ÕµÄÏßË÷¶þ²æÊ÷
+ *	çº¿ç´¢äºŒå‰æ ‘åˆå§‹åŒ–
+ *		æž„é€ ä¸€æ£µç©ºçš„çº¿ç´¢äºŒå‰æ ‘
  */
 void initThreadBinaryTree(ThreadBinaryTree *t)
 {
@@ -31,7 +31,7 @@ void initThreadBinaryTree(ThreadBinaryTree *t)
 }
 
 /*
- *	ÅÐ¶ÏÊÇ·ñÊÇ¿Õ¶þ²æÊ÷
+ *	åˆ¤æ–­æ˜¯å¦æ˜¯ç©ºäºŒå‰æ ‘
  */
 int BinaryTreeEmpty(ThreadBinaryTree t)
 {
@@ -46,7 +46,7 @@ int BinaryTreeEmpty(ThreadBinaryTree t)
 }
 
 /*
- *	¹¹Ôì¶þ²æÊ÷½Úµã
+ *	æž„é€ äºŒå‰æ ‘èŠ‚ç‚¹
  */
 void createThreadBiNode(ThreadBinaryTree *n)
 {
@@ -62,22 +62,22 @@ void createThreadBiNode(ThreadBinaryTree *n)
 		*n = (ThreadBinaryTree)malloc(sizeof(ThreadBinaryTree));
 		(*n)->data = e;
 	}
-	printf("%cµÄ×óº¢×Ó½Úµã£º",(*n)->data);
+	printf("%cçš„å·¦å­©å­èŠ‚ç‚¹ï¼š",(*n)->data);
 	createThreadBiNode(&((*n)->lchild));
 
-	printf("%cµÄÓÒº¢×Ó½Úµã£º",(*n)->data);
+	printf("%cçš„å³å­©å­èŠ‚ç‚¹ï¼š",(*n)->data);
 	createThreadBiNode(&((*n)->rchild));
 
 }
 
 /*
- *	£¨Ç°Ðò£©¹¹Ôì¶þ²æÊ÷
+ *	ï¼ˆå‰åºï¼‰æž„é€ äºŒå‰æ ‘
  */
 void createThreadBinaryTree(ThreadBinaryTree *t)
 {
 	ElemType e;
-	printf("ÊäÈë¶þ²æÊ÷¸÷½ÚµãµÄÖµ£º\n");
-	printf("¸ù½Úµã£º");
+	printf("è¾“å…¥äºŒå‰æ ‘å„èŠ‚ç‚¹çš„å€¼ï¼š\n");
+	printf("æ ¹èŠ‚ç‚¹ï¼š");
 	scanf("%s",&e);
 	if(e == END)
 	{
@@ -88,10 +88,10 @@ void createThreadBinaryTree(ThreadBinaryTree *t)
 		(*t) = (ThreadBinaryTree)malloc(sizeof(ThreadBinaryTree));
 		(*t)->data = e;
 		
-		printf("¸ù½ÚµãµÄ×óº¢×Ó½Úµã£º");
+		printf("æ ¹èŠ‚ç‚¹çš„å·¦å­©å­èŠ‚ç‚¹ï¼š");
 		createThreadBiNode(&((*t)->lchild));
 
-		printf("¸ù½ÚµãµÄÓÒº¢×Ó½Úµã£º");
+		printf("æ ¹èŠ‚ç‚¹çš„å³å­©å­èŠ‚ç‚¹ï¼š");
 		createThreadBiNode(&((*t)->rchild));
 
 	}

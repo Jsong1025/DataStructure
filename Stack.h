@@ -4,27 +4,27 @@
 #define TRUE 1
 #define FALSE 0
 
-typedef  int ElemType;		//½ÚµãÊı¾İÀàĞÍ
+typedef  int ElemType;		//èŠ‚ç‚¹æ•°æ®ç±»å‹
 
-typedef struct Node			//½Úµã½á¹¹Ìå
+typedef struct Node			//èŠ‚ç‚¹ç»“æ„ä½“
 {
 	ElemType data;
 	struct Node *next;
 }Node, *SNode;
 
-typedef struct StackNode		//Õ»½á¹¹Ìå
+typedef struct StackNode		//æ ˆç»“æ„ä½“
 {
-	SNode top;			//Õ»¶¥
-	SNode bottom;		//Õ»µ×
-	int length;			//Õ»Éî¶È
+	SNode top;			//æ ˆé¡¶
+	SNode bottom;		//æ ˆåº•
+	int length;			//æ ˆæ·±åº¦
 }Stack;
 
 /*
- *  ÅĞ¶ÏÊÇ·ñÊÇ¿ÕÕ»
+ *  åˆ¤æ–­æ˜¯å¦æ˜¯ç©ºæ ˆ
  * 
- * 	²ÎÊı£º	Stack *  s
+ * 	å‚æ•°ï¼š	Stack *  s
  *
- *	·µ»Ø£ºÎ±²¼¶ûÀàĞÍ£¨int£©
+ *	è¿”å›ï¼šä¼ªå¸ƒå°”ç±»å‹ï¼ˆintï¼‰
  */
 int isEmpty(Stack s)
 {
@@ -39,10 +39,10 @@ int isEmpty(Stack s)
 }
 
 /*
- *	Êı¾İÑ¹Õ»
+ *	æ•°æ®å‹æ ˆ
  *	
- *	²ÎÊı£º	Stack *  s
- *			ElemType e	ÒªÑ¹ÈëµÄÊı¾İ
+ *	å‚æ•°ï¼š	Stack *  s
+ *			ElemType e	è¦å‹å…¥çš„æ•°æ®
  */
 void push(Stack *s , ElemType e)
 {
@@ -66,11 +66,11 @@ void push(Stack *s , ElemType e)
 }
 
 /*
- *	Êı¾İ³öÕ»
+ *	æ•°æ®å‡ºæ ˆ
  *	
- *	²ÎÊı£ºStack	s
+ *	å‚æ•°ï¼šStack	s
  *
- *	·µ»Ø£ºElemType  Õ»¶¥Êı¾İ 
+ *	è¿”å›ï¼šElemType  æ ˆé¡¶æ•°æ® 
  */
 ElemType pop(Stack *s)
 {
@@ -81,15 +81,15 @@ ElemType pop(Stack *s)
 }
 
 /*
- *	Õ»±éÀúÊä³ö(µ¹Ğò)
+ *	æ ˆéå†è¾“å‡º(å€’åº)
  *	
- *	²ÎÊı£º	Stack   s
+ *	å‚æ•°ï¼š	Stack   s
  */
 void printStack(Stack s)
 {
 	SNode p = s.top;
 
-	printf("Õ»Éî¶È£º");
+	printf("æ ˆæ·±åº¦ï¼š");
 	printf("%d\n",s.length);
 	
 	while(p != NULL)
@@ -101,11 +101,11 @@ void printStack(Stack s)
 }
 
 /*
- *	»ñÈ¡Õ»¶¥ÔªËØ
+ *	è·å–æ ˆé¡¶å…ƒç´ 
  *
- *	²ÎÊı£ºStack	s
+ *	å‚æ•°ï¼šStack	s
  *
- *	·µ»Ø£ºElemType  Õ»¶¥Êı¾İ 
+ *	è¿”å›ï¼šElemType  æ ˆé¡¶æ•°æ® 
  */
 ElemType getTopElem(Stack s)
 {
@@ -113,9 +113,9 @@ ElemType getTopElem(Stack s)
 }
 
 /*
- *	Õ»³õÊ¼»¯
+ *	æ ˆåˆå§‹åŒ–
  *	
- *	²ÎÊı£º	Stack *  s
+ *	å‚æ•°ï¼š	Stack *  s
  */
 void initStack(Stack *s)
 {

@@ -15,14 +15,14 @@ void InitList ()
 {
 	int i;
 	int c;
-	printf("Çë³õÊ¼»¯ºÕ·òÂüÊ÷¸÷µãÈ¨Öµ£º(100¸ö×Ö·ûÒÔÄÚ£¬ÓÃ¿Õ¸ñ»ò»Ø³µ¸ô¿ª£¬ÒÔ¡°-1¡±½áÊø¡£)£º\n");
+	printf("è¯·åˆå§‹åŒ–èµ«å¤«æ›¼æ ‘å„ç‚¹æƒå€¼ï¼š(100ä¸ªå­—ç¬¦ä»¥å†…ï¼Œç”¨ç©ºæ ¼æˆ–å›è½¦éš”å¼€ï¼Œä»¥â€œ-1â€ç»“æŸã€‚)ï¼š\n");
 	for(i=1;c!=-1;i++)
 	{
 		scanf("%d",&c);
 		List[i]=c;
 		if(i>=100)
 		{
-			printf("ÊäÈëÊı¾İÒç³ö£¡\n");
+			printf("è¾“å…¥æ•°æ®æº¢å‡ºï¼\n");
 			break;
 		}
 	}
@@ -88,19 +88,19 @@ void HuffmanPrint (HTNode T[])
 	int i;
 	for(i=1;T[i].Weight!='\0';i++)
 	{
-		printf("%dºÅ½Úµã£¬È¨ÖØÎª%d£¬",i,T[i].Weight);
+		printf("%då·èŠ‚ç‚¹ï¼Œæƒé‡ä¸º%dï¼Œ",i,T[i].Weight);
 		if(T[i].Parent==0)
-			printf("Ã»ÓĞË«Ç×£¬");
+			printf("æ²¡æœ‰åŒäº²ï¼Œ");
 		else
-			printf("Ë«Ç×Îª%dºÅ½Úµã£¬",T[i].Parent);
+			printf("åŒäº²ä¸º%då·èŠ‚ç‚¹ï¼Œ",T[i].Parent);
 		if(T[i].LChild==0)
-			printf("Ã»ÓĞ×óº¢×Ó£¬");
+			printf("æ²¡æœ‰å·¦å­©å­ï¼Œ");
 		else 
-			printf("×óº¢×ÓÎª%dºÅ½Úµã£¬",T[i].LChild);
+			printf("å·¦å­©å­ä¸º%då·èŠ‚ç‚¹ï¼Œ",T[i].LChild);
 		if(T[i].LChild==0)
-			printf("Ã»ÓĞÓÒº¢×Ó¡£\n");
+			printf("æ²¡æœ‰å³å­©å­ã€‚\n");
 		else 
-			printf("ÓÒº¢×ÓÎª%dºÅ½Úµã¡£\n",T[i].LChild);
+			printf("å³å­©å­ä¸º%då·èŠ‚ç‚¹ã€‚\n",T[i].LChild);
 	}
 }
 

@@ -29,9 +29,9 @@ BiThrNode *PrInitBiTree ()
 	{
 		Head=(BiThrNode*)malloc(sizeof(BiThrNode));
 		Head->Data=ch;
-		printf("%cµÄ×óº¢×Ó£º",Head->Data);
+		printf("%cçš„å·¦å­©å­ï¼š",Head->Data);
 		Head->LChild=PrInitBiTree ();
-		printf("%cµÄÓÒº¢×Ó£º",Head->Data);
+		printf("%cçš„å³å­©å­ï¼š",Head->Data);
 		Head->RChild=PrInitBiTree ();
 	}
 	return Head;
@@ -57,7 +57,7 @@ void InThreading (BiThrNode *T,BiThrNode *p)
 		p=T;
 		InThreading (T->RChild,p);
 	}
-	printf("ÏßË÷»¯½Úµã¡ª¡ª³É¹¦\n");
+	printf("çº¿ç´¢åŒ–èŠ‚ç‚¹â€”â€”æˆåŠŸ\n");
 }
 
 BiThrNode *InOrderTread (BiThrNode *T)
@@ -82,7 +82,7 @@ BiThrNode *InOrderTread (BiThrNode *T)
 		p->RTag=Thread;
 		Head->RChild=p;
 	}
-	printf("¶ş²æÊ÷ÏßË÷»¯¡ª¡ª³É¹¦\n");
+	printf("äºŒå‰æ ‘çº¿ç´¢åŒ–â€”â€”æˆåŠŸ\n");
 	return Head;
 }
 
@@ -105,7 +105,7 @@ void InOrderPrint(BiThrNode *T)
 
 void Print (BiThrNode *T)
 {
-	printf("ÏßË÷¶ş²æÊ÷µÄÖĞĞò±éÀúÊä³öÎª:");
+	printf("çº¿ç´¢äºŒå‰æ ‘çš„ä¸­åºéå†è¾“å‡ºä¸º:");
 	InOrderPrint(T);
 	printf("\n");
 }
@@ -113,7 +113,7 @@ void Print (BiThrNode *T)
 void main ()
 {
 	BiThrNode *Main;
-	printf("ÇëÒÀ´ÎÊäÈë¶ş²æÊ÷µÄ¸÷¸ö½Úµã£º£¨ÒÔ¡°#¡±½áÊø£©\n");
+	printf("è¯·ä¾æ¬¡è¾“å…¥äºŒå‰æ ‘çš„å„ä¸ªèŠ‚ç‚¹ï¼šï¼ˆä»¥â€œ#â€ç»“æŸï¼‰\n");
 	Main=PrInitBiTree ();
 	printf("\n");
 	InOrderTread (Main);

@@ -4,42 +4,42 @@
 #define FALSE 0;
 #define TRUE 1;
 
-//¶ÓÁĞ½Úµã
+//é˜Ÿåˆ—èŠ‚ç‚¹
 typedef struct QueueNode
 {
 	int Data;
 	struct QueueNode *Next;
 } QueueNode;
 
-//¶ÓÁĞ
+//é˜Ÿåˆ—
 typedef struct Queue
 {
 	QueueNode *front;
 	QueueNode *rear;
 } Queue;
 
-//»¡½Úµã
+//å¼§èŠ‚ç‚¹
 typedef struct ArcNode
 {
 	int adjvex;
 	struct ArcNode *NextArc;
 } ArcNode;
 
-//¶¥µã½Úµã
+//é¡¶ç‚¹èŠ‚ç‚¹
 typedef struct
 {
 	int Data;
 	ArcNode *FristArc;
 } VNode;
 
-//Í¼µÄ´æ´¢½á¹¹
+//å›¾çš„å­˜å‚¨ç»“æ„
 typedef struct
 {
 	VNode GraphNode[100];
 	int VexNum;
 } Graph;
 
-//³õÊ¼»¯¶ÓÁĞ
+//åˆå§‹åŒ–é˜Ÿåˆ—
 Queue InitQueue ()
 {
 	Queue QInit;
@@ -47,7 +47,7 @@ Queue InitQueue ()
 	return QInit;
 }
 
-//¶ÓÁĞÊÇ·ñÎª¿Õ
+//é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º
 int QueueEmpty(Queue QEmpty)
 {
 	if(QEmpty.front==NULL && QEmpty.rear==NULL)
@@ -60,7 +60,7 @@ int QueueEmpty(Queue QEmpty)
 	}
 }
 
-//Èë¶Ó
+//å…¥é˜Ÿ
 Queue EnQueue (Queue QEn,int Elem)
 {
 	QueueNode *temp;
@@ -82,7 +82,7 @@ Queue EnQueue (Queue QEn,int Elem)
 	return QEn;
 }
 
-//³ö¶Ó
+//å‡ºé˜Ÿ
 Queue DeQueue (Queue QDe,int *Elem)
 {
 	*Elem=QDe.front->Data;
@@ -93,49 +93,49 @@ Queue DeQueue (Queue QDe,int *Elem)
 	return QDe;
 }
 
-//Í¼¶¥µãµÄ³õÊ¼»¯
+//å›¾é¡¶ç‚¹çš„åˆå§‹åŒ–
 Graph InitNode ()
 {
 	int i;
 	Graph InNGraph;
 	
-	printf("ÇëÊäÈëËùÒª¹¹½¨Í¼µÄ½ÚµãÊı£º");
+	printf("è¯·è¾“å…¥æ‰€è¦æ„å»ºå›¾çš„èŠ‚ç‚¹æ•°ï¼š");
 	scanf("%d",&InNGraph.VexNum);
 	
-	printf("ÇëÒÀ´ÎÊäÈë¸÷¸ö½ÚµãµÄÊı¾İ£º\n");
+	printf("è¯·ä¾æ¬¡è¾“å…¥å„ä¸ªèŠ‚ç‚¹çš„æ•°æ®ï¼š\n");
 	for (i=1;i<=InNGraph.VexNum;i++)
 	{
-		printf("µÚ%d½Úµã£º",i);
+		printf("ç¬¬%dèŠ‚ç‚¹ï¼š",i);
 		scanf("%d",&InNGraph.GraphNode[i-1].Data);
 	}
 	
 	return InNGraph;
 }
 
-//¶¥µãÊäÈëº¯Êı
-//NodeÎª½Úµã±¾ÉíµÄ±àºÅ£¬NodeNumÎª½Úµã×ÜÊı
+//é¡¶ç‚¹è¾“å…¥å‡½æ•°
+//Nodeä¸ºèŠ‚ç‚¹æœ¬èº«çš„ç¼–å·ï¼ŒNodeNumä¸ºèŠ‚ç‚¹æ€»æ•°
 int NodeScan(int Node,int NodeNum)
 {
 	int Elem;
 	while(scanf("%d",&Elem))
 	{
-		//³¬³ö½Úµã·¶Î§
+		//è¶…å‡ºèŠ‚ç‚¹èŒƒå›´
 		if(Elem>NodeNum || Elem<=0)
 		{
 			if(Elem==-1)
 				break;
 			else
 			{
-				printf("ÄúÊäÈëµÄ½Úµã³¬³öÔ¤¶¨·¶Î§£¬ÇëÖØĞÂÊäÈë£º");
+				printf("æ‚¨è¾“å…¥çš„èŠ‚ç‚¹è¶…å‡ºé¢„å®šèŒƒå›´ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š");
 				continue;
 			}
 		}
 		else 
 		{
-			//½Úµã±¾Éí
+			//èŠ‚ç‚¹æœ¬èº«
 			if(Elem==Node)
 			{
-				printf("²»¿ÉÊäÈë½Úµã×ÔÉí£¬ÇëÖØĞÂÊäÈë£º");
+				printf("ä¸å¯è¾“å…¥èŠ‚ç‚¹è‡ªèº«ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š");
 				continue;
 			}
 			else
@@ -145,7 +145,7 @@ int NodeScan(int Node,int NodeNum)
 	return Elem;
 }
 
-//Í¼µÄ³õÊ¼»¯
+//å›¾çš„åˆå§‹åŒ–
 Graph InitGraph ()
 {
 	int i;
@@ -153,46 +153,46 @@ Graph InitGraph ()
 	Graph InitGraph;
 	ArcNode *TempArc;
 	
-	//³õÊ¼»¯Í¼µÄ¶¥µã
+	//åˆå§‹åŒ–å›¾çš„é¡¶ç‚¹
 	InitGraph=InitNode ();
 	
-	printf("ÇëÊäÈëÓëÏÂÁĞ½ÚµãÓĞ¹ØÏµµÄ½ÚµãºÅ£º£¨ÒÔ-1½áÊø£©\n");
+	printf("è¯·è¾“å…¥ä¸ä¸‹åˆ—èŠ‚ç‚¹æœ‰å…³ç³»çš„èŠ‚ç‚¹å·ï¼šï¼ˆä»¥-1ç»“æŸï¼‰\n");
 	for (i=0;i<InitGraph.VexNum;i++)
 	{
 		TempArc=NULL;
 		InitGraph.GraphNode[i].FristArc=TempArc;
-		printf("µÚ%d¸ö½Úµã£º",i+1);
+		printf("ç¬¬%dä¸ªèŠ‚ç‚¹ï¼š",i+1);
 		
 		Elem=NodeScan(i+1,InitGraph.VexNum);
 		if(Elem!=-1)
 		{
-			//µÚÒ»¸ö½Úµã
+			//ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
 			TempArc=(ArcNode*)malloc(sizeof(ArcNode));
 			TempArc->adjvex=Elem;
 			InitGraph.GraphNode[i].FristArc=TempArc;
 			
 			while(1)
 			{
-				//ÊäÈë½Úµã±àºÅ
+				//è¾“å…¥èŠ‚ç‚¹ç¼–å·
 				Elem=NodeScan(i+1,InitGraph.VexNum);
 				if(Elem==-1)
 					break;
 				
-				//¿ª±Ù½Úµã
+				//å¼€è¾ŸèŠ‚ç‚¹
 				TempArc->NextArc=(ArcNode*)malloc(sizeof(ArcNode));
 				TempArc->NextArc->adjvex=Elem;
 				TempArc=TempArc->NextArc;
 			}
-			//×îºóÒ»¸ö½ÚµãÖÃ¿Õ
+			//æœ€åä¸€ä¸ªèŠ‚ç‚¹ç½®ç©º
 			TempArc->NextArc=NULL;
 		}
 	}
 	return InitGraph;
 }
 
-//ÔÚ½ÚµãÁ´±íÀï²éÕÒÌØ¶¨Êı¾İ
-//NodeLinkÎªÖ¸Ïò½ÚµãÁ´±íµÄÖ¸Õë£¬ElemÎªÒª²éÕÒµÄÊı¾İ
-//²éÕÒ³É¹¦·µ»ØTRUE£¬·ñÔò·µ»ØFAlSE
+//åœ¨èŠ‚ç‚¹é“¾è¡¨é‡ŒæŸ¥æ‰¾ç‰¹å®šæ•°æ®
+//NodeLinkä¸ºæŒ‡å‘èŠ‚ç‚¹é“¾è¡¨çš„æŒ‡é’ˆï¼ŒElemä¸ºè¦æŸ¥æ‰¾çš„æ•°æ®
+//æŸ¥æ‰¾æˆåŠŸè¿”å›TRUEï¼Œå¦åˆ™è¿”å›FAlSE
 int SearchNode(ArcNode *NodeLink,int Elem)
 {
 	ArcNode *TempArc=NodeLink;
@@ -203,7 +203,7 @@ int SearchNode(ArcNode *NodeLink,int Elem)
 	}
 	else
 	{
-		//Ñ­»·±éÀú
+		//å¾ªç¯éå†
 		while(TempArc->adjvex!=Elem)
 		{
 			if(TempArc->NextArc==NULL)
@@ -214,31 +214,31 @@ int SearchNode(ArcNode *NodeLink,int Elem)
 	}
 }
 
-//Êä³ö¹ã¶È±éÀúÉú³ÉÊ÷µÄ±ß¼¯
-//GraÎªÍ¼£¬QueÎª¹ã¶È±éÀúÉú³ÉµÄ¶ÓÁĞ
+//è¾“å‡ºå¹¿åº¦éå†ç”Ÿæˆæ ‘çš„è¾¹é›†
+//Graä¸ºå›¾ï¼ŒQueä¸ºå¹¿åº¦éå†ç”Ÿæˆçš„é˜Ÿåˆ—
 void PrintTree(Graph Gra,Queue Que)
 {
 	QueueNode *Node1,*Node2;
 	ArcNode *TempArc;
-	printf("¸ÃÍ¼µÄ¹ã¶ÈÉú³ÉÊ÷µÄ±ß¼¯ÈçÏÂ£º\n");
+	printf("è¯¥å›¾çš„å¹¿åº¦ç”Ÿæˆæ ‘çš„è¾¹é›†å¦‚ä¸‹ï¼š\n");
 
-	//Node1£¬Node2·Ö±ğÖ¸Ïò¶ÓÁĞµÄÇ°Á½¸ö½Úµã
+	//Node1ï¼ŒNode2åˆ†åˆ«æŒ‡å‘é˜Ÿåˆ—çš„å‰ä¸¤ä¸ªèŠ‚ç‚¹
 	Node1=Que.front;
 	Node2=Node1->Next;
-	printf("¸ù½áµã£º%d\n",Node1->Data);
+	printf("æ ¹ç»“ç‚¹ï¼š%d\n",Node1->Data);
 	while(Node1!=NULL)
 	{
-		printf("%d½ÚµãµÄº¢×Ó£º",Node1->Data);
+		printf("%dèŠ‚ç‚¹çš„å­©å­ï¼š",Node1->Data);
 		if(Node2==NULL)
-			printf("¸Ã½ÚµãÃ»ÓĞº¢×Ó");
+			printf("è¯¥èŠ‚ç‚¹æ²¡æœ‰å­©å­");
 		else
 		{
-			//±éÀúNode1µÄ»¡½ÚµãÁ´±í
+			//éå†Node1çš„å¼§èŠ‚ç‚¹é“¾è¡¨
 			TempArc=Gra.GraphNode[Node1->Data-1].FristArc;
 			while(SearchNode(TempArc,Node2->Data))
 			{
-				//²éÕÒ³É¹¦£¬½«Node2ºóÒÆ
-				printf(" %d½Úµã",Node2->Data);
+				//æŸ¥æ‰¾æˆåŠŸï¼Œå°†Node2åç§»
+				printf(" %dèŠ‚ç‚¹",Node2->Data);
 				Node2=Node2->Next;
 				if(Node2==NULL)
 					break;
@@ -246,30 +246,30 @@ void PrintTree(Graph Gra,Queue Que)
 		}
 		printf("\n");
 
-		//²éÕÒÊ§°Ü£¬½«Node1ºóÒÆ
+		//æŸ¥æ‰¾å¤±è´¥ï¼Œå°†Node1åç§»
 		Node1=Node1->Next;
 	}
 }
 
-//Í¼µÄ¹ã¶È±éÀú
+//å›¾çš„å¹¿åº¦éå†
 void BFSTraverse (Graph GTra,int nNode)
 {
 	int i;
 
-	//·ÃÎÊ±ê¼ÇÊı×é
+	//è®¿é—®æ ‡è®°æ•°ç»„
 	int Visited[100];
 	ArcNode *TempArc;
 	Queue Que;
 	Queue QuePrint;
 	
-	//³õÊ¼»¯¶ÓÁĞºÍ±ê¼ÇÊı×é
+	//åˆå§‹åŒ–é˜Ÿåˆ—å’Œæ ‡è®°æ•°ç»„
 	Que=InitQueue();
 	QuePrint=InitQueue();
 	for(i=0;i<GTra.VexNum;i++)
 		Visited[i]=FALSE;
 
-	//·ÃÎÊµÚÒ»¸ö½Úµã
-	printf("´ÓµÚ%d¸ö½Úµã¿ªÊ¼µÄ¹ã¶È±éÀúÈçÏÂ£º\n",nNode);
+	//è®¿é—®ç¬¬ä¸€ä¸ªèŠ‚ç‚¹
+	printf("ä»ç¬¬%dä¸ªèŠ‚ç‚¹å¼€å§‹çš„å¹¿åº¦éå†å¦‚ä¸‹ï¼š\n",nNode);
 	printf("%d",GTra.GraphNode[nNode-1].Data);
 	Visited[nNode-1]=TRUE;
 	Que=EnQueue(Que,nNode);
@@ -280,12 +280,12 @@ void BFSTraverse (Graph GTra,int nNode)
 		Que=DeQueue(Que,&nNode);
 		TempArc=GTra.GraphNode[nNode-1].FristArc;
 		
-		//·ÃÎÊ¸Ã½ÚµãÓëÖ®ËùÓĞÓĞ»¡µÄ½Úµã
+		//è®¿é—®è¯¥èŠ‚ç‚¹ä¸ä¹‹æ‰€æœ‰æœ‰å¼§çš„èŠ‚ç‚¹
 		while(TempArc!=NULL)
 		{
 			nNode=TempArc->adjvex;
 
-			//Èç¹û¸Ã½ÚµãÉĞÎ´·ÃÎÊ¹ı
+			//å¦‚æœè¯¥èŠ‚ç‚¹å°šæœªè®¿é—®è¿‡
 			if(!Visited[nNode-1])
 			{
 				printf("%d",GTra.GraphNode[nNode-1].Data);
@@ -302,28 +302,28 @@ void BFSTraverse (Graph GTra,int nNode)
 	PrintTree(GTra,QuePrint);
 }
 
-//Êä³öÍ¼µÄËùÓĞ½ÚµãºÍ»¡
+//è¾“å‡ºå›¾çš„æ‰€æœ‰èŠ‚ç‚¹å’Œå¼§
 void PrintGraph (Graph GPrint)
 {
 	int i;
 	ArcNode *p;
-	printf("¸Ã±íÈçÏÂ£º\n");
-	printf("¹²ÓĞ½Úµã£º%d¸ö¡£\n",GPrint.VexNum);
+	printf("è¯¥è¡¨å¦‚ä¸‹ï¼š\n");
+	printf("å…±æœ‰èŠ‚ç‚¹ï¼š%dä¸ªã€‚\n",GPrint.VexNum);
 	for (i=1;i<=GPrint.VexNum;i++)
 	{
 		p=GPrint.GraphNode[i-1].FristArc;
-		printf("µÚ%d¸ö½Úµã£º\nÊı¾İÓòÎª£º%d£¬",i,GPrint.GraphNode[i-1].Data);
+		printf("ç¬¬%dä¸ªèŠ‚ç‚¹ï¼š\næ•°æ®åŸŸä¸ºï¼š%dï¼Œ",i,GPrint.GraphNode[i-1].Data);
 		if(p==NULL)
-			printf("¸Ã½ÚµãÎª¹ÂÁ¢½Úµã¡£\n");
+			printf("è¯¥èŠ‚ç‚¹ä¸ºå­¤ç«‹èŠ‚ç‚¹ã€‚\n");
 		else
 		{
-			printf("ÓëµÚ");
+			printf("ä¸ç¬¬");
 			while(p!=NULL)
 			{
 				printf("%d ",p->adjvex);
 				p=p->NextArc;
 			}
-			printf("¸ö½ÚµãÓĞ»¡¡£\n");
+			printf("ä¸ªèŠ‚ç‚¹æœ‰å¼§ã€‚\n");
 		}
 		printf("\n");
 	}
@@ -333,19 +333,19 @@ void main()
 {
 	Graph MainGraph;
 	
-	//±éÀú¿ªÊ¼½Úµã
+	//éå†å¼€å§‹èŠ‚ç‚¹
 	int num;
 
-	//³õÊ¼»¯Í¼
+	//åˆå§‹åŒ–å›¾
 	MainGraph=InitGraph ();
 	
 	printf("\n");
-	printf("ÇëÊäÈë¹ã¶È±éÀú¿ªÊ¼µÄ½Úµã£º");
+	printf("è¯·è¾“å…¥å¹¿åº¦éå†å¼€å§‹çš„èŠ‚ç‚¹ï¼š");
 	num=NodeScan(0,MainGraph.VexNum);
 	printf("\n");
 	BFSTraverse (MainGraph,num);
 	
-	//Êä³öÍ¼£¨½ÚµãÒÔ¼°»¡£©
+	//è¾“å‡ºå›¾ï¼ˆèŠ‚ç‚¹ä»¥åŠå¼§ï¼‰
 	printf("\n");
 	PrintGraph (MainGraph);
 	printf("%c",getchar());

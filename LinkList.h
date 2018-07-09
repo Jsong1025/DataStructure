@@ -3,29 +3,29 @@
 
 #define TRUE 1
 #define FALSE 0
-#define END '#'		//½áÊø±êÖ¾
+#define END '#'		//ç»“æŸæ ‡å¿—
 
-typedef  int ElemType;		//½ÚµãÊı¾İÀàĞÍ
+typedef  int ElemType;		//èŠ‚ç‚¹æ•°æ®ç±»å‹
 
-typedef struct Node			//½Úµã½á¹¹Ìå
+typedef struct Node			//èŠ‚ç‚¹ç»“æ„ä½“
 {
 	ElemType data;
 	struct Node *next;
 }Node, *LNode;
 
-typedef struct LinkNode		//Á´±í½á¹¹Ìå
+typedef struct LinkNode		//é“¾è¡¨ç»“æ„ä½“
 {
-	LNode head;		//Í·½áµã
-	LNode tail;		//Î²½Úµã
-	int length;		//³¤¶È
+	LNode head;		//å¤´ç»“ç‚¹
+	LNode tail;		//å°¾èŠ‚ç‚¹
+	int length;		//é•¿åº¦
 }LinkList;
 
 /*
- *	ÏòÁ´±íÖĞ²åÈëÊı¾İ
+ *	å‘é“¾è¡¨ä¸­æ’å…¥æ•°æ®
  *	
- *	²ÎÊı£º	LinkList *  list£¨Òª³õÊ¼»¯µÄÁ´±í£©
- *			ElemType	Òª²åÈëµÄÊı¾İ
- *	·µ»Ø£º	Î±²¼¶ûÀàĞÍ(int)
+ *	å‚æ•°ï¼š	LinkList *  listï¼ˆè¦åˆå§‹åŒ–çš„é“¾è¡¨ï¼‰
+ *			ElemType	è¦æ’å…¥çš„æ•°æ®
+ *	è¿”å›ï¼š	ä¼ªå¸ƒå°”ç±»å‹(int)
  */
 void insertElem(LinkList *list , ElemType e)
 {
@@ -47,18 +47,18 @@ void insertElem(LinkList *list , ElemType e)
 	}
 }
 /*
- *	²åÈëÁ´±íÖ¸¶¨Î»ÖÃ
+ *	æ’å…¥é“¾è¡¨æŒ‡å®šä½ç½®
  *	
- *	²ÎÊı£º	LinkList	list
- *			ElemType	e	  Òª²åÈëµÄÊı¾İ
- *			int			n	  ½ÚµãÎ»ÖÃ (´Ó0¿ªÊ¼) 
+ *	å‚æ•°ï¼š	LinkList	list
+ *			ElemType	e	  è¦æ’å…¥çš„æ•°æ®
+ *			int			n	  èŠ‚ç‚¹ä½ç½® (ä»0å¼€å§‹) 
  */
 void insertNode(LinkList *list ,int n , ElemType e)
 {
 	int i = 0;
 	LNode p = list->head;
 	LNode q;
-	while(i < n-1)	//ÕÒµ½Òª²åÈëµÄÇ°Ò»¸ö½Úµã
+	while(i < n-1)	//æ‰¾åˆ°è¦æ’å…¥çš„å‰ä¸€ä¸ªèŠ‚ç‚¹
 	{
 		p = p->next;
 		i++;
@@ -71,17 +71,17 @@ void insertNode(LinkList *list ,int n , ElemType e)
 }
 
 /*
- *	»ñÈ¡Á´±íÖ¸¶¨Î»ÖÃµÄÊı¾İ
+ *	è·å–é“¾è¡¨æŒ‡å®šä½ç½®çš„æ•°æ®
  *	
- *	²ÎÊı£º	LinkList	list
- *			int			n	  ½ÚµãÎ»ÖÃ(´Ó0¿ªÊ¼) 
- *	·µ»Ø£º	ElemType	´Ë½ÚµãµÄÊı¾İ  
+ *	å‚æ•°ï¼š	LinkList	list
+ *			int			n	  èŠ‚ç‚¹ä½ç½®(ä»0å¼€å§‹) 
+ *	è¿”å›ï¼š	ElemType	æ­¤èŠ‚ç‚¹çš„æ•°æ®  
  */
 ElemType getNodeElem(LinkList list,int n)
 {
 	int i = 0;
 	LNode p = list.head;
-	while(i < n)		//ÕÒµ½Òª²åÈëµÄ½Úµã
+	while(i < n)		//æ‰¾åˆ°è¦æ’å…¥çš„èŠ‚ç‚¹
 	{
 		p = p->next;
 		i++;
@@ -90,17 +90,17 @@ ElemType getNodeElem(LinkList list,int n)
 }
 
 /*
- *	É¾³ıÁ´±íÖ¸¶¨½Úµã
+ *	åˆ é™¤é“¾è¡¨æŒ‡å®šèŠ‚ç‚¹
  *	
- *	²ÎÊı£º	LinkList	list
- *			int			n	  ½ÚµãÎ»ÖÃ(´Ó0¿ªÊ¼) 
+ *	å‚æ•°ï¼š	LinkList	list
+ *			int			n	  èŠ‚ç‚¹ä½ç½®(ä»0å¼€å§‹) 
  */
 void deleteNode(LinkList *list,int n)
 {
 	int i = 0;
 	LNode p = list->head;
 	LNode q;
-	while(i < n-1)	//ÕÒµ½Òª²åÈëµÄÇ°Ò»¸ö½Úµã
+	while(i < n-1)	//æ‰¾åˆ°è¦æ’å…¥çš„å‰ä¸€ä¸ªèŠ‚ç‚¹
 	{
 		p = p->next;
 		i++;
@@ -111,15 +111,15 @@ void deleteNode(LinkList *list,int n)
 }
 
 /*
- *	Á´±íÊä³ö
+ *	é“¾è¡¨è¾“å‡º
  *	
- *	²ÎÊı£º	LinkList   list£¨ÒªÊä³öµÄÁ´±í£©
+ *	å‚æ•°ï¼š	LinkList   listï¼ˆè¦è¾“å‡ºçš„é“¾è¡¨ï¼‰
  */
 void printLinkList(LinkList list)
 {
 	LNode p = list.head;
 
-	printf("Á´±í³¤¶È£º");
+	printf("é“¾è¡¨é•¿åº¦ï¼š");
 	printf("%d\n",list.length);
 	
 	while(p != NULL)
@@ -132,11 +132,11 @@ void printLinkList(LinkList list)
 
 
 /*
- *	Á´±í³õÊ¼»¯
- *		Ñ­»·É¨ÃèÊäÈëÊı¾İ£¬Ö±µ½ÊäÈëÖ¸¶¨½áÊø·ûÎªÖ¹
+ *	é“¾è¡¨åˆå§‹åŒ–
+ *		å¾ªç¯æ‰«æè¾“å…¥æ•°æ®ï¼Œç›´åˆ°è¾“å…¥æŒ‡å®šç»“æŸç¬¦ä¸ºæ­¢
  *	
- *	²ÎÊı£º	LinkList * 	list£¨Òª³õÊ¼»¯µÄÁ´±í£©
- *	·µ»Ø£º	Î±²¼¶ûÀàĞÍ(int)
+ *	å‚æ•°ï¼š	LinkList * 	listï¼ˆè¦åˆå§‹åŒ–çš„é“¾è¡¨ï¼‰
+ *	è¿”å›ï¼š	ä¼ªå¸ƒå°”ç±»å‹(int)
  */
 int initLinkList(LinkList *list)
 {
@@ -145,7 +145,7 @@ int initLinkList(LinkList *list)
 	list->length = 0;
 	list->head = list->tail = NULL;
 
-	printf("ÇëÊäÈë³õÊ¼»¯Êı¾İ£º\n");
+	printf("è¯·è¾“å…¥åˆå§‹åŒ–æ•°æ®ï¼š\n");
 	while(1)
 	{
 		scanf("%s",&c);

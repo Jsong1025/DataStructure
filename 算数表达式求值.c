@@ -5,36 +5,36 @@
 #define FALSE 0;
 #define TRUE 1;
 
-//¶¨ÒåÊý×ÖÕ»½Úµã
+//å®šä¹‰æ•°å­—æ ˆèŠ‚ç‚¹
 typedef struct NumStackNode
 {
 	int Data;
 	struct NumStackNode *Next;
 } NumStack;
 
-//¶¨ÒåÔËËã·ûÕ»½Úµã
+//å®šä¹‰è¿ç®—ç¬¦æ ˆèŠ‚ç‚¹
 typedef struct StrStackNode
 {
 	char Data;
 	struct StrStackNode *Next;
 } StrStack;
 
-//·µ»ØÊý×ÖÕ»¶¥ÔªËØ
+//è¿”å›žæ•°å­—æ ˆé¡¶å…ƒç´ 
 int NumTopStack (NumStack *S)
 {
 	return S->Data;
 }
 
-//·µ»ØÔËËã·ûÕ»¶¥ÔªËØ
+//è¿”å›žè¿ç®—ç¬¦æ ˆé¡¶å…ƒç´ 
 char StrTopStack (StrStack *S)
 {
 	return S->Data;
 }
 
-//ÅÐ¶ÏÊÇ·ñÎªÊý×Ö¿ÕÕ»
+//åˆ¤æ–­æ˜¯å¦ä¸ºæ•°å­—ç©ºæ ˆ
 int NumEmptystack(NumStack *S)
 {
-	//Èç¹ûÎª¿ÕÕ»·µ»Øtrue
+	//å¦‚æžœä¸ºç©ºæ ˆè¿”å›žtrue
 	if(S==NULL)
 	{
 		return TRUE;
@@ -45,10 +45,10 @@ int NumEmptystack(NumStack *S)
 	}
 }
 
-//ÅÐ¶ÏÊÇ·ñÎªÔËËã·û¿ÕÕ»
+//åˆ¤æ–­æ˜¯å¦ä¸ºè¿ç®—ç¬¦ç©ºæ ˆ
 int StrEmptystack(StrStack *S)
 {
-	//Èç¹ûÎª¿ÕÕ»·µ»Øtrue
+	//å¦‚æžœä¸ºç©ºæ ˆè¿”å›žtrue
 	if(S==NULL)
 	{
 		return TRUE;
@@ -59,7 +59,7 @@ int StrEmptystack(StrStack *S)
 	}
 }
 
-//Êý×Ö·û³öÕ»£¬²¢·µ»ØÕ»¶¥µÄÖµ
+//æ•°å­—ç¬¦å‡ºæ ˆï¼Œå¹¶è¿”å›žæ ˆé¡¶çš„å€¼
 int NumPopStack (NumStack **S)
 {
 	int Elem=(*S)->Data;
@@ -67,7 +67,7 @@ int NumPopStack (NumStack **S)
 	return Elem;
 }
 
-//ÔËËã·û³öÕ»£¬²¢·µ»ØÕ»¶¥µÄÖµ
+//è¿ç®—ç¬¦å‡ºæ ˆï¼Œå¹¶è¿”å›žæ ˆé¡¶çš„å€¼
 char StrPopStack (StrStack **S)
 {
 	char Elem=(*S)->Data;
@@ -75,23 +75,23 @@ char StrPopStack (StrStack **S)
 	return Elem;
 }
 
-//°ÑÊý¾ÝdÑ¹ÈëÊý×ÖÕ»¶¥£¬ÈëÕ»
+//æŠŠæ•°æ®dåŽ‹å…¥æ•°å­—æ ˆé¡¶ï¼Œå…¥æ ˆ
 NumStack *NumPushStack (NumStack *S,int Elem)
 {
-	//ÁÙÊ±½ÚµãTemp
+	//ä¸´æ—¶èŠ‚ç‚¹Temp
 	NumStack *Temp;
 
-	//Èç¹ûSÎª¿ÕÕ»
+	//å¦‚æžœSä¸ºç©ºæ ˆ
 	if(S==NULL)
 	{
-		//ÖØÐÂ¿ª±Ù½Úµã£¬²¢¸³Öµ
+		//é‡æ–°å¼€è¾ŸèŠ‚ç‚¹ï¼Œå¹¶èµ‹å€¼
 		S=(NumStack*)malloc(sizeof(NumStack));
 		S->Data=Elem;
 		S->Next=NULL;
 	}
 	else
 	{
-		//ÎªÕ»ÖØÐÂ¿ª±ÙÒ»¸ö½Úµã£¬²¢Ñ¹ÈëÊýÖµElem
+		//ä¸ºæ ˆé‡æ–°å¼€è¾Ÿä¸€ä¸ªèŠ‚ç‚¹ï¼Œå¹¶åŽ‹å…¥æ•°å€¼Elem
 		Temp=(NumStack*)malloc(sizeof(NumStack));
 		Temp->Data=Elem;
 		Temp->Next=S;
@@ -100,23 +100,23 @@ NumStack *NumPushStack (NumStack *S,int Elem)
 	return S;
 }
 
-//°ÑÊý¾ÝdÑ¹ÈëÔËËã·ûÕ»¶¥£¬ÈëÕ»
+//æŠŠæ•°æ®dåŽ‹å…¥è¿ç®—ç¬¦æ ˆé¡¶ï¼Œå…¥æ ˆ
 StrStack *StrPushStack (StrStack *S,char Elem)
 {
-	//ÁÙÊ±½ÚµãTemp
+	//ä¸´æ—¶èŠ‚ç‚¹Temp
 	StrStack *Temp;
 
-	//Èç¹ûSÎª¿ÕÕ»
+	//å¦‚æžœSä¸ºç©ºæ ˆ
 	if(S==NULL)
 	{
-		//ÖØÐÂ¿ª±Ù½Úµã£¬²¢¸³Öµ
+		//é‡æ–°å¼€è¾ŸèŠ‚ç‚¹ï¼Œå¹¶èµ‹å€¼
 		S=(StrStack*)malloc(sizeof(StrStack));
 		S->Data=Elem;
 		S->Next=NULL;
 	}
 	else
 	{
-		//ÎªÕ»ÖØÐÂ¿ª±ÙÒ»¸ö½Úµã£¬²¢Ñ¹ÈëÊýÖµElem
+		//ä¸ºæ ˆé‡æ–°å¼€è¾Ÿä¸€ä¸ªèŠ‚ç‚¹ï¼Œå¹¶åŽ‹å…¥æ•°å€¼Elem
 		Temp=(StrStack*)malloc(sizeof(StrStack));
 		Temp->Data=Elem;
 		Temp->Next=S;
@@ -125,7 +125,7 @@ StrStack *StrPushStack (StrStack *S,char Elem)
 	return S;
 }
 
-//¼ÆËãÊýÖµ
+//è®¡ç®—æ•°å€¼
 int Operate (int Num1,int Num2,char str)
 {
 	switch (str)
@@ -137,13 +137,13 @@ int Operate (int Num1,int Num2,char str)
 	}
 }
 
-//ÅÐ¶ÏÔËËã·ûÓÅÏÈ¼¶
-//Str1µÍÓÚStr2Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+//åˆ¤æ–­è¿ç®—ç¬¦ä¼˜å…ˆçº§
+//Str1ä½ŽäºŽStr2åˆ™è¿”å›žtrueï¼Œå¦åˆ™è¿”å›žfalse
 int ComStr(char Str1,char Str2)
 {
-	//Èç¹ûÎª+£¬Ö»ÓÐ*£¬/£¬£©·µ»Øtrue
-	//×¢Òâ£º-µÄÓÅÏÈ¼¶´óÓÚ+  £¡£¡
-	//ÆäÓà¾ùÎªfalse
+	//å¦‚æžœä¸º+ï¼Œåªæœ‰*ï¼Œ/ï¼Œï¼‰è¿”å›žtrue
+	//æ³¨æ„ï¼š-çš„ä¼˜å…ˆçº§å¤§äºŽ+  ï¼ï¼
+	//å…¶ä½™å‡ä¸ºfalse
 	if(Str1=='+')
 	{
 		switch(Str2)
@@ -156,8 +156,8 @@ int ComStr(char Str1,char Str2)
 		}
 	}
 
-	//Èç¹ûÎª-£¬Ö»ÓÐ*£¬/£¬£©·µ»Øtrue
-	//ÆäÓà¾ùÎªfalse
+	//å¦‚æžœä¸º-ï¼Œåªæœ‰*ï¼Œ/ï¼Œï¼‰è¿”å›žtrue
+	//å…¶ä½™å‡ä¸ºfalse
 	if(Str1=='-')
 	{
 		switch(Str2)
@@ -169,9 +169,9 @@ int ComStr(char Str1,char Str2)
 		}
 	}
 
-	//Èç¹ûÎª*£¬Ö»ÓÐ£©·µ»Øtrue
-	//×¢Òâ£º/µÄÓÅÏÈ¼¶´óÓÚ*  £¡£¡
-	//ÆäÓà¾ùÎªfalse
+	//å¦‚æžœä¸º*ï¼Œåªæœ‰ï¼‰è¿”å›žtrue
+	//æ³¨æ„ï¼š/çš„ä¼˜å…ˆçº§å¤§äºŽ*  ï¼ï¼
+	//å…¶ä½™å‡ä¸ºfalse
 	if(Str1=='*')
 	{
 		switch(Str2)
@@ -182,8 +182,8 @@ int ComStr(char Str1,char Str2)
 		}
 	}
 
-	//Èç¹ûÎª\£¬Ö»ÓÐ£©·µ»Øtrue
-	//ÆäÓà¾ùÎªfalse
+	//å¦‚æžœä¸º\ï¼Œåªæœ‰ï¼‰è¿”å›žtrue
+	//å…¶ä½™å‡ä¸ºfalse
 	if(Str1=='/')
 	{
 		switch(Str2)
@@ -193,7 +193,7 @@ int ComStr(char Str1,char Str2)
 		}
 	}
 
-	// ( µÍÓÚÒ»ÇÐÔËËã·û
+	// ( ä½ŽäºŽä¸€åˆ‡è¿ç®—ç¬¦
 	if(Str1=='(')
 	{
 		if(Str2=='=')
@@ -206,27 +206,27 @@ int ComStr(char Str1,char Str2)
 		}
 	}
 
-	// ) ¸ßÓÚÒ»ÇÐÔËËã·û
+	// ) é«˜äºŽä¸€åˆ‡è¿ç®—ç¬¦
 	if(Str1==')')
 		return TRUE;
 }
 
-//ÑÝÊ¾º¯Êý
+//æ¼”ç¤ºå‡½æ•°
 void Demo(StrStack *SStr,NumStack *SNum)
 {
 	StrStack *tempStr=SStr;
 	NumStack *tempNum=SNum;
 
-	//Õ¹Ê¾Êý×ÖÕ»ÄÚËùÓÐÔªËØ
-	printf("Êý×ÖÕ»:  ");
+	//å±•ç¤ºæ•°å­—æ ˆå†…æ‰€æœ‰å…ƒç´ 
+	printf("æ•°å­—æ ˆ:  ");
 	while(tempNum!=NULL)
 	{
 		printf("%d ",tempNum->Data);
 		tempNum=tempNum->Next;
 	}
 
-	//ÔËËã·ûÕ»ÄÚËùÓÐÔªËØ
-	printf("\t\t\t²Ù×÷·ûÕ»: ");
+	//è¿ç®—ç¬¦æ ˆå†…æ‰€æœ‰å…ƒç´ 
+	printf("\t\t\tæ“ä½œç¬¦æ ˆ: ");
 	while(tempStr!=NULL)
 	{
 		printf("%c ",tempStr->Data);
@@ -235,28 +235,28 @@ void Demo(StrStack *SStr,NumStack *SNum)
 	printf("\n");
 }
 
-//¼ÆËãº¯Êý
-//¸ù¾Ý´«ÈëµÄÔËËã·û£¬¶ÔÊý×ÖÕ»ÒÔ¼°ÔËËã·ûÕ»½øÐÐÏàÓ¦²Ù×÷
+//è®¡ç®—å‡½æ•°
+//æ ¹æ®ä¼ å…¥çš„è¿ç®—ç¬¦ï¼Œå¯¹æ•°å­—æ ˆä»¥åŠè¿ç®—ç¬¦æ ˆè¿›è¡Œç›¸åº”æ“ä½œ
 StrStack *Count(char str,StrStack *SStr,NumStack **SNum)
 {
 	int Sum=0;
 
-	//ÔËËã·ûÕ»·Ç¿Õ
+	//è¿ç®—ç¬¦æ ˆéžç©º
 	if(StrEmptystack(SStr) && str!='=')
 		SStr=StrPushStack(SStr,str);
 
 	else
 	{
-		//ÓÅÏÈ¼¶´óÓÚÕ»¶¥ÔªËØ£¬Ñ¹Õ»
+		//ä¼˜å…ˆçº§å¤§äºŽæ ˆé¡¶å…ƒç´ ï¼ŒåŽ‹æ ˆ
 		if(!ComStr(str,StrTopStack(SStr)))
 		{
 			SStr=StrPushStack(SStr,str);
 			Demo(SStr,*SNum);
 		}
 
-		//·ñÔòÑ­»·³öÕ»²¢¼ÆËã
-		//Ö±µ½Õ»¶¥ÔªËØÓÅÏÈ¼¶Ð¡ÓÚµ±Ç°ÔËËã·û£¬½«µ±Ç°ÔËËã·ûÑ¹Õ»
-		//½«¼ÆËã½á¹ûÑ¹Õ»
+		//å¦åˆ™å¾ªçŽ¯å‡ºæ ˆå¹¶è®¡ç®—
+		//ç›´åˆ°æ ˆé¡¶å…ƒç´ ä¼˜å…ˆçº§å°äºŽå½“å‰è¿ç®—ç¬¦ï¼Œå°†å½“å‰è¿ç®—ç¬¦åŽ‹æ ˆ
+		//å°†è®¡ç®—ç»“æžœåŽ‹æ ˆ
 		else
 		{
 			while(!StrEmptystack(SStr))
@@ -266,7 +266,7 @@ StrStack *Count(char str,StrStack *SStr,NumStack **SNum)
 				
 				Demo(SStr,*SNum);
 				
-				//Èç¹ûÊäÈëÎªÓÒÀ¨ºÅ £©ÔËËã·û£¬ÏûÈ¥ÔËËã·ûÕ»ÖÐµÄ×óÀ¨ºÅ£¨ ÔËËã·û
+				//å¦‚æžœè¾“å…¥ä¸ºå³æ‹¬å· ï¼‰è¿ç®—ç¬¦ï¼Œæ¶ˆåŽ»è¿ç®—ç¬¦æ ˆä¸­çš„å·¦æ‹¬å·ï¼ˆ è¿ç®—ç¬¦
 				if(str==')' && StrTopStack(SStr)=='(')
 				{
 					str=StrPopStack(&SStr);
@@ -279,7 +279,7 @@ StrStack *Count(char str,StrStack *SStr,NumStack **SNum)
 				Sum=0;
 				Demo(SStr,*SNum);
 			}
-			//Èç¹ûElem²»ÊÇ£¨ £¬¼È³ýÈ¥À¨ºÅÖ®ÍâµÄÔËËã·û£¬°Ñµ±Ç°ÔËËã·ûÑ¹ÈëÕ»¶¥
+			//å¦‚æžœElemä¸æ˜¯ï¼ˆ ï¼Œæ—¢é™¤åŽ»æ‹¬å·ä¹‹å¤–çš„è¿ç®—ç¬¦ï¼ŒæŠŠå½“å‰è¿ç®—ç¬¦åŽ‹å…¥æ ˆé¡¶
 			if(str!='(')
 				SStr=StrPushStack(SStr,str);
 		}
@@ -295,14 +295,14 @@ void main ()
 	int Num=0;
 	char Oper;
 
-	//¶¨ÒåÊý×ÖÕ»¡¢ÔËËã·ûÕ»
+	//å®šä¹‰æ•°å­—æ ˆã€è¿ç®—ç¬¦æ ˆ
 	NumStack *NumberStack=NULL;
 	StrStack *StringStack=NULL;
 
-	printf("ÇëÊäÈëÊýÑ§±í´ïÊ½£¬ÒÔ=½áÊø£º\n");
+	printf("è¯·è¾“å…¥æ•°å­¦è¡¨è¾¾å¼ï¼Œä»¥=ç»“æŸï¼š\n");
 	while((Str=getchar())!='\n')
 	{
-		//¼ÆËãÊäÈëÊýÖµ
+		//è®¡ç®—è¾“å…¥æ•°å€¼
 		if(Str>'0' && Str<'9')
 			Num=Num*10+((int)Str-48);
 		
@@ -310,7 +310,7 @@ void main ()
 		{
 			Oper=Str;
 
-			//½«Êý×ÖÑ¹Õ»
+			//å°†æ•°å­—åŽ‹æ ˆ
 			if(Num!=0)
 			{
 				NumberStack=NumPushStack(NumberStack,Num);
@@ -318,11 +318,11 @@ void main ()
 				Demo(StringStack,NumberStack);
 			}
 
-			//¶ÔÔËËã·û½øÐÐÏàÓ¦²Ù×÷
+			//å¯¹è¿ç®—ç¬¦è¿›è¡Œç›¸åº”æ“ä½œ
 			StringStack=Count(Oper,StringStack,&NumberStack);
 		}
 	}
 
-	printf("\n±í´ïÊ½½á¹ûÎª£º%d\n",NumPopStack(&NumberStack));
+	printf("\nè¡¨è¾¾å¼ç»“æžœä¸ºï¼š%d\n",NumPopStack(&NumberStack));
 	printf("%c",getchar());
 }

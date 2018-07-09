@@ -4,27 +4,27 @@
 #define TRUE 1
 #define FALSE 0
 
-typedef  int ElemType;		//½ÚµãÊı¾İÀàĞÍ
+typedef  int ElemType;		//èŠ‚ç‚¹æ•°æ®ç±»å‹
 
-typedef struct Node			//½Úµã½á¹¹Ìå
+typedef struct Node			//èŠ‚ç‚¹ç»“æ„ä½“
 {
 	ElemType data;
 	struct Node *next;
 }Node, *QNode;
 
-typedef struct QueueNode		//¶ÓÁĞ½á¹¹Ìå
+typedef struct QueueNode		//é˜Ÿåˆ—ç»“æ„ä½“
 {
-	QNode head;			//¶ÓÍ·
-	QNode tail;			//¶ÓÎ²
-	int length;			//¶ÓÁĞ³¤¶È
+	QNode head;			//é˜Ÿå¤´
+	QNode tail;			//é˜Ÿå°¾
+	int length;			//é˜Ÿåˆ—é•¿åº¦
 }Queue;
 
 /*
- *  ÅĞ¶ÏÊÇ·ñÊÇ¿Õ¶ÓÁĞ
+ *  åˆ¤æ–­æ˜¯å¦æ˜¯ç©ºé˜Ÿåˆ—
  * 
- * 	²ÎÊı£º	Queue *  q
+ * 	å‚æ•°ï¼š	Queue *  q
  *
- *	·µ»Ø£ºÎ±²¼¶ûÀàĞÍ£¨int£©
+ *	è¿”å›ï¼šä¼ªå¸ƒå°”ç±»å‹ï¼ˆintï¼‰
  */
 int isEmpty(Queue q)
 {
@@ -39,10 +39,10 @@ int isEmpty(Queue q)
 }
 
 /*
- *	Èë¶ÓÁĞ
+ *	å…¥é˜Ÿåˆ—
  *	
- *	²ÎÊı£º	Queue *  q
- *			ElemType e	ÒªÈë¶ÓµÄÊı¾İ
+ *	å‚æ•°ï¼š	Queue *  q
+ *			ElemType e	è¦å…¥é˜Ÿçš„æ•°æ®
  */
 void enQueue(Queue *q , ElemType e)
 {
@@ -65,11 +65,11 @@ void enQueue(Queue *q , ElemType e)
 }
 
 /*
- *	Êı¾İ³ö¶ÓÁĞ
+ *	æ•°æ®å‡ºé˜Ÿåˆ—
  *	
- *	²ÎÊı£ºQueue	q
+ *	å‚æ•°ï¼šQueue	q
  *
- *	·µ»Ø£ºElemType  ¶ÓÍ·Êı¾İ 
+ *	è¿”å›ï¼šElemType  é˜Ÿå¤´æ•°æ® 
  */
 ElemType deQueue(Queue *q)
 {
@@ -80,15 +80,15 @@ ElemType deQueue(Queue *q)
 }
 
 /*
- *	Õ»±éÀúÊä³ö
+ *	æ ˆéå†è¾“å‡º
  *	
- *	²ÎÊı£º	Queue   q
+ *	å‚æ•°ï¼š	Queue   q
  */
 void printQueue(Queue q)
 {
 	QNode p = q.head;
 
-	printf("¶ÓÁĞ³¤¶È£º");
+	printf("é˜Ÿåˆ—é•¿åº¦ï¼š");
 	printf("%d\n",q.length);
 	
 	while(p != NULL)
@@ -100,11 +100,11 @@ void printQueue(Queue q)
 }
 
 /*
- *	»ñÈ¡¶ÓÍ·ÔªËØ
+ *	è·å–é˜Ÿå¤´å…ƒç´ 
  *
- *	²ÎÊı£ºQueue	q
+ *	å‚æ•°ï¼šQueue	q
  *
- *	·µ»Ø£ºElemType  ¶ÓÍ·Êı¾İ 
+ *	è¿”å›ï¼šElemType  é˜Ÿå¤´æ•°æ® 
  */
 ElemType getHead(Queue q)
 {
@@ -112,11 +112,11 @@ ElemType getHead(Queue q)
 }
 
 /*
- *	»ñÈ¡¶ÓÎ²ÔªËØ
+ *	è·å–é˜Ÿå°¾å…ƒç´ 
  *
- *	²ÎÊı£ºQueue	q
+ *	å‚æ•°ï¼šQueue	q
  *
- *	·µ»Ø£ºElemType  ¶ÓÎ²Êı¾İ 
+ *	è¿”å›ï¼šElemType  é˜Ÿå°¾æ•°æ® 
  */
 ElemType getTail(Queue q)
 {
@@ -124,9 +124,9 @@ ElemType getTail(Queue q)
 }
 
 /*
- *	¶ÓÁĞ³õÊ¼»¯
+ *	é˜Ÿåˆ—åˆå§‹åŒ–
  *	
- *	²ÎÊı£º	Queue *  q
+ *	å‚æ•°ï¼š	Queue *  q
  */
 void initQueue(Queue *q)
 {

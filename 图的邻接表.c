@@ -25,12 +25,12 @@ Graph MainGraph;
 void InitNode ()
 {
 	int i;
-	printf("ÇëÊäÈëËùÒª¹¹½¨Í¼µÄ½ÚµãÊı£º");
+	printf("è¯·è¾“å…¥æ‰€è¦æ„å»ºå›¾çš„èŠ‚ç‚¹æ•°ï¼š");
 	scanf("%d",&MainGraph.VexNum);
-	printf("ÇëÒÀ´ÎÊäÈë¸÷¸ö½ÚµãµÄÊı¾İ£º\n");
+	printf("è¯·ä¾æ¬¡è¾“å…¥å„ä¸ªèŠ‚ç‚¹çš„æ•°æ®ï¼š\n");
 	for (i=1;i<=MainGraph.VexNum;i++)
 	{
-		printf("µÚ%d½Úµã£º",i);
+		printf("ç¬¬%dèŠ‚ç‚¹ï¼š",i);
 		scanf("%d",&MainGraph.GraphNode[i-1].Data);
 	}
 }
@@ -40,18 +40,18 @@ void InitGraph ()
 	int i;
 	ArcNode *Arc1,*Arc2;
 	InitNode ();
-	printf("ÇëÊäÈëÓëÏÂÁĞ½ÚµãÓĞ¹ØÏµµÄ½ÚµãºÅ£º");
+	printf("è¯·è¾“å…¥ä¸ä¸‹åˆ—èŠ‚ç‚¹æœ‰å…³ç³»çš„èŠ‚ç‚¹å·ï¼š");
 	for (i=1;i<=MainGraph.VexNum;i++)
 	{
 		Arc1=(ArcNode*)malloc(sizeof(ArcNode));
 		MainGraph.GraphNode[i].FristArc=Arc1;
-		printf("µÚ%d¸ö½Úµã£º",i);
+		printf("ç¬¬%dä¸ªèŠ‚ç‚¹ï¼š",i);
 		while(1)
 		{
 			scanf("%d",&Arc1->adjvex);
 			if(Arc1->adjvex>MainGraph.VexNum)
 			{
-				printf("ÄúÊäÈëµÄ½Úµã³¬³öÔ¤¶¨·¶Î§£¬ÇëÖØĞÂÊäÈë£º");
+				printf("æ‚¨è¾“å…¥çš„èŠ‚ç‚¹è¶…å‡ºé¢„å®šèŒƒå›´ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š");
 				scanf("%d",&Arc1->adjvex);
 			}
 			if(Arc1->adjvex==-1)
@@ -70,23 +70,23 @@ void PrintGraph ()
 {
 	int i;
 	ArcNode *p;
-	printf("¸Ã±íÈçÏÂ£º\n");
-	printf("¹²ÓĞ½Úµã£º%d¸ö¡£\n",MainGraph.VexNum);
+	printf("è¯¥è¡¨å¦‚ä¸‹ï¼š\n");
+	printf("å…±æœ‰èŠ‚ç‚¹ï¼š%dä¸ªã€‚\n",MainGraph.VexNum);
 	for (i=1;i<=MainGraph.VexNum;i++)
 	{
 		p=MainGraph.GraphNode[i].FristArc;
-		printf("µÚ%d¸ö½Úµã£º\nÊı¾İÓòÎª£º%d£¬",i,MainGraph.GraphNode[i-1].Data);
+		printf("ç¬¬%dä¸ªèŠ‚ç‚¹ï¼š\næ•°æ®åŸŸä¸ºï¼š%dï¼Œ",i,MainGraph.GraphNode[i-1].Data);
 		if(p->adjvex==-1)
-			printf("¸Ã½ÚµãÎª¹ÂÁ¢½Úµã¡£\n");
+			printf("è¯¥èŠ‚ç‚¹ä¸ºå­¤ç«‹èŠ‚ç‚¹ã€‚\n");
 		else
 		{
-			printf("ÓëµÚ");
+			printf("ä¸ç¬¬");
 			while(p->adjvex!=-1)
 			{
 					printf("%d ",p->adjvex);
 					p=p->NextArc;
 			}
-			printf("¸ö½ÚµãÓĞ»¡¡£\n");
+			printf("ä¸ªèŠ‚ç‚¹æœ‰å¼§ã€‚\n");
 		}
 		printf("\n");
 	}

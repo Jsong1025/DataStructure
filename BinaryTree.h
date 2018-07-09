@@ -3,16 +3,16 @@
 
 #define TRUE 1
 #define FALSE 0
-#define END '#'		//½áÊø±êÖ¾
+#define END '#'		//ç»“æŸæ ‡å¿—
 
-typedef  char ElemType;		//½ÚµãÊı¾İÀàĞÍ
+typedef  char ElemType;		//èŠ‚ç‚¹æ•°æ®ç±»å‹
 
-typedef struct BiNode			//¶ş²æÊ÷½Úµã
+typedef struct BiNode			//äºŒå‰æ ‘èŠ‚ç‚¹
 {
 	ElemType data;
-	struct BiNode *lchild;	//×óº¢×Ó
-	struct BiNode *rchild;	//ÓÒº¢×Ó
-	struct BiNode *parent;	//¸¸½Úµã
+	struct BiNode *lchild;	//å·¦å­©å­
+	struct BiNode *rchild;	//å³å­©å­
+	struct BiNode *parent;	//çˆ¶èŠ‚ç‚¹
 }BiNode, *BiTree;
 
 typedef struct BinaryTree
@@ -22,8 +22,8 @@ typedef struct BinaryTree
 }BinaryTree;
 
 /*
- *	¶ş²æÊ÷³õÊ¼»¯
- *		¹¹ÔìÒ»¿Ã¿ÕµÄ¶ş²æÊ÷
+ *	äºŒå‰æ ‘åˆå§‹åŒ–
+ *		æ„é€ ä¸€æ£µç©ºçš„äºŒå‰æ ‘
  */
 void initBinaryTree(BinaryTree *t)
 {
@@ -32,7 +32,7 @@ void initBinaryTree(BinaryTree *t)
 }
 
 /*
- *	ÅĞ¶ÏÊÇ·ñÊÇ¿Õ¶ş²æÊ÷
+ *	åˆ¤æ–­æ˜¯å¦æ˜¯ç©ºäºŒå‰æ ‘
  */
 int BinaryTreeEmpty(BinaryTree t)
 {
@@ -47,7 +47,7 @@ int BinaryTreeEmpty(BinaryTree t)
 }
 
 /*
- *	¹¹Ôì¶ş²æÊ÷½Úµã
+ *	æ„é€ äºŒå‰æ ‘èŠ‚ç‚¹
  */
 void createBinaryNode(BiTree *n,BiTree parent)
 {
@@ -64,21 +64,21 @@ void createBinaryNode(BiTree *n,BiTree parent)
 		(*n)->data = e;
 		(*n)->parent = parent;
 	}
-	printf("%cµÄ×óº¢×Ó½Úµã£º",(*n)->data);
+	printf("%cçš„å·¦å­©å­èŠ‚ç‚¹ï¼š",(*n)->data);
 	createBinaryNode(&((*n)->lchild),*n);
 
-	printf("%cµÄÓÒº¢×Ó½Úµã£º",(*n)->data);
+	printf("%cçš„å³å­©å­èŠ‚ç‚¹ï¼š",(*n)->data);
 	createBinaryNode(&((*n)->rchild),*n);
 }
 
 /*
- *	¹¹Ôì¶ş²æÊ÷
+ *	æ„é€ äºŒå‰æ ‘
  */
 void createBinaryTree(BinaryTree *t)
 {
 	ElemType e;
-	printf("ÊäÈë¶ş²æÊ÷¸÷½ÚµãµÄÖµ£º\n");
-	printf("¸ù½Úµã£º");
+	printf("è¾“å…¥äºŒå‰æ ‘å„èŠ‚ç‚¹çš„å€¼ï¼š\n");
+	printf("æ ¹èŠ‚ç‚¹ï¼š");
 	scanf("%s",&e);
 	if(e == END)
 	{
@@ -90,17 +90,17 @@ void createBinaryTree(BinaryTree *t)
 		t->root->parent = NULL;
 		t->root->data = e;
 		
-		printf("¸ù½ÚµãµÄ×óº¢×Ó½Úµã£º");
+		printf("æ ¹èŠ‚ç‚¹çš„å·¦å­©å­èŠ‚ç‚¹ï¼š");
 		createBinaryNode(&(t->root->lchild),t->root);
 
-		printf("¸ù½ÚµãµÄÓÒº¢×Ó½Úµã£º");
+		printf("æ ¹èŠ‚ç‚¹çš„å³å­©å­èŠ‚ç‚¹ï¼š");
 		createBinaryNode(&(t->root->rchild),t->root);
 
 	}
 }
 
 /*
- *	Ç°Ğò±éÀú¶ş²æÊ÷½Úµã£¨µİ¹é·½·¨£©
+ *	å‰åºéå†äºŒå‰æ ‘èŠ‚ç‚¹ï¼ˆé€’å½’æ–¹æ³•ï¼‰
  */
 void preOrederTraverseNode(BiTree n)
 {
@@ -118,17 +118,17 @@ void preOrederTraverseNode(BiTree n)
 }
 
 /*
- *	Ç°Ğò±éÀú¶ş²æÊ÷
+ *	å‰åºéå†äºŒå‰æ ‘
  */
 void preOrederTraverse(BinaryTree t)
 {
-	printf("Õâ¿Ã¶ş²æÊ÷µÄÇ°Ğò±éÀúÎª£º\n");
+	printf("è¿™æ£µäºŒå‰æ ‘çš„å‰åºéå†ä¸ºï¼š\n");
 	preOrederTraverseNode(t.root);
 	printf("\n");
 }
 
 /*
- *	ÖĞĞò±éÀú¶ş²æÊ÷½Úµã£¨µİ¹é·½·¨£©
+ *	ä¸­åºéå†äºŒå‰æ ‘èŠ‚ç‚¹ï¼ˆé€’å½’æ–¹æ³•ï¼‰
  */
 void inOrederTraverseNode(BiTree n)
 {
@@ -146,17 +146,17 @@ void inOrederTraverseNode(BiTree n)
 }
 
 /*
- *	ÖĞĞò±éÀú¶ş²æÊ÷
+ *	ä¸­åºéå†äºŒå‰æ ‘
  */
 void inOrederTraverse(BinaryTree t)
 {
-	printf("Õâ¿Ã¶ş²æÊ÷µÄÖĞĞò±éÀúÎª£º\n");
+	printf("è¿™æ£µäºŒå‰æ ‘çš„ä¸­åºéå†ä¸ºï¼š\n");
 	inOrederTraverseNode(t.root);
 	printf("\n");
 }
 
 /*
- *	ºóĞò±éÀú¶ş²æÊ÷½Úµã£¨µİ¹é·½·¨£©
+ *	ååºéå†äºŒå‰æ ‘èŠ‚ç‚¹ï¼ˆé€’å½’æ–¹æ³•ï¼‰
  */
 void postOrederTraverseNode(BiTree n)
 {
@@ -174,11 +174,11 @@ void postOrederTraverseNode(BiTree n)
 }
 
 /*
- *	ºóĞò±éÀú¶ş²æÊ÷
+ *	ååºéå†äºŒå‰æ ‘
  */
 void postOrederTraverse(BinaryTree t)
 {
-	printf("Õâ¿Ã¶ş²æÊ÷µÄºóĞò±éÀúÎª£º\n");
+	printf("è¿™æ£µäºŒå‰æ ‘çš„ååºéå†ä¸ºï¼š\n");
 	postOrederTraverseNode(t.root);
 	printf("\n");
 }
