@@ -104,9 +104,9 @@ void HuffmanPrint (HTNode T[])
 	}
 }
 
-void main ()
-{
-	HTNode *HuffmanTree;
-	HuffmanTree=InitHuffmanTree ();
-	HuffmanPrint (Huffman);
-}
+//void main ()
+//{
+//	HTNode *HuffmanTree;
+//	HuffmanTree=InitHuffmanTree ();
+//	HuffmanPrint (Huffman);
+//}
