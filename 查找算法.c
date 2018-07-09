@@ -14,7 +14,7 @@ int SequenceSearch(int arr[], int value, int n)
     return -1;
 }
 
-// 二分查找（非递归）
+// 二分查找（非递归）O(log2n)
 int BinarySearch1(int a[], int value, int n)
 {
     int low, high, mid;
