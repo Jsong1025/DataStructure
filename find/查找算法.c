@@ -20,7 +20,7 @@ int BinarySearch1(int a[], int value, int n)
     int low, high, mid;
     low = 0;
     high = n - 1;
-    while(low < high)
+    while(low <= high)
     {
         mid = (low + high) / 2;
         if(a[mid] == value)
@@ -42,7 +42,7 @@ int BinarySearch1(int a[], int value, int n)
 int BinarySearch2(int a[], int value, int low, int high)
 {
     int mid = low + (high - low) / 2;
-    if(a[mid] = =value)
+    if(a[mid] == value)
     {
         return mid;
     }
